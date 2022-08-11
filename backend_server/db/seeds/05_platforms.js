@@ -6,7 +6,7 @@ const tableNames = require('../../src/constants/tableNames');
  */
 exports.seed = async (knex) => {
     // Deletes ALL existing entries
-    await knex(tableNames.platformType).del();
+    await knex(tableNames.platform).del();
     
     let platformNames = [
         'no platform',
@@ -15,7 +15,7 @@ exports.seed = async (knex) => {
 
     await platformNames.reduce(async (promise, platformName) => {
         await promise;
-        return knex(tableNames.platformType).insert({
+        return knex(tableNames.platform).insert({
             name: platformName,
         });
     }, Promise.resolve());
