@@ -9,22 +9,18 @@ exports.seed = async (knex) => {
     await knex(tableNames.extraEquipmentItem).del();
     
     let extraEquipmentItemNames = [
-        'rear bench configuration',
         'galley kitchen',
         'rear bench',
         'starboard bench',
         'co driver seat',
-        'table configuration',
         'deck table',
         'deck table lounge layout',
         'bow sunbathing cushions',
-        'side rails configuration',
         'stainless steel fender profiles',
         'fender profiles',
         'foredeck stainless steel rails',
         'sunbed tent',
         'storage consoles behind helm seats',
-        'steering wheel configuration',
         'steering wheel rubber',
         'steering wheel wood',
         'windshield',
