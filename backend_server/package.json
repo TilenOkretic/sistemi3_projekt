@@ -1,0 +1,22 @@
+{
+  "name": "backend_server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "migrate": "npx knex migrate:latest",
+    "rollback": "npx knex migrate:rollback"
+  },
+  "keywords": [],
+  "author": "Tilen Okretic",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "knex": "^2.2.0",
+    "pg": "^8.7.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.21.0",
+    "eslint-plugin-unused-imports": "^2.0.0"
+  }
+}
