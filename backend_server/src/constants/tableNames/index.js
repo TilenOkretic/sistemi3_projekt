@@ -1,7 +1,5 @@
 
 module.exports = { 	
-    country: 'country', 	  	 
-    
     color: 'color',
     deckColor: 'deck_color', 	  	 
     hullColor: 'hull_color', 	  	 
@@ -28,10 +26,11 @@ module.exports = {
     extraEquipment: 'extraEquipment', 	  	 
     
     boat: 'boat', 	  	 
+
+    country: 'country', 	  	 
     
-    
-    // BoatOrder 	  	 
-    // Distributer 	  	 
+    distributor: 'distributor',
+    boatOrder: 'boat_order', 	  	 
     
     
 };
