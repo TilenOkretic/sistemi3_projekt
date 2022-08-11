@@ -43,6 +43,16 @@ let referenceWithName = (table, referenceName, tableName) => {
         .onDelete('cascade');
 };
 
+let nullableReferenceWithName = (table, referenceName, tableName) => {
+    // 'unsigned int' because an int id can only be a positive number 
+    table
+        .integer(referenceName)
+        .unsigned()
+        .references('id')
+        .inTable(tableName)
+        .onDelete('cascade');
+};
+
 
 function createTableWithName (knex, name) { 
     return createTable(knex, name, (table) => {
@@ -62,5 +72,6 @@ module.exports = {
     createTableWithName,
     addDefaultColumns,
     references,
-    referenceWithName
+    referenceWithName,
+    nullableReferenceWithName,
 };

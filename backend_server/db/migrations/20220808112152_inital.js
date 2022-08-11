@@ -4,7 +4,8 @@ const {
     createColorTable,
     createTableWithName,
     references,
-    referenceWithName } = require('../../src/utils/tables/inex');
+    referenceWithName, 
+    nullableReferenceWithName } = require('../../src/utils/tables/inex');
 
 /**
  * This function creates all db tables and sets up their relationships
@@ -52,11 +53,29 @@ exports.up = async (knex) => {
     //     references(table, tableNames.tapestry);
     // });
 
-    await createTable(knex, tableNames.extraEquipment, () => {});
-
     await createTable(knex, tableNames.extraEquipmentItem, (table) => {
-        references(table, tableNames.extraEquipment);
         table.string('name', 50);
+    });
+
+    await createTable(knex, tableNames.extraEquipment, (table) => {
+        nullableReferenceWithName(table, 'rear_bench_configuration', tableNames.extraEquipmentItem);
+
+        
+        nullableReferenceWithName(table, 'table_configuration', tableNames.extraEquipmentItem);
+        
+        nullableReferenceWithName(table, 'bow_sunbathing_cushions', tableNames.extraEquipmentItem);
+        
+        nullableReferenceWithName(table, 'side_rails_configuration', tableNames.extraEquipmentItem);
+        
+        nullableReferenceWithName(table, 'foredeck_stainless_steel_rails', tableNames.extraEquipmentItem);
+        nullableReferenceWithName(table, 'sunbed_tent', tableNames.extraEquipmentItem);
+        nullableReferenceWithName(table, 'storage_consoles_behind_helm_seats', tableNames.extraEquipmentItem);
+
+        nullableReferenceWithName(table, 'steering_wheel_configuration', tableNames.extraEquipmentItem);
+
+        nullableReferenceWithName(table, 'windshield', tableNames.extraEquipmentItem);
+        nullableReferenceWithName(table, 'marine_carpet', tableNames.extraEquipmentItem);
+        nullableReferenceWithName(table, 'additional_storage', tableNames.extraEquipmentItem);
     });
 
     await createTable(knex, tableNames.boat, (table) => {
@@ -76,12 +95,13 @@ exports.up = async (knex) => {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
+// TODO: look into an orederd name list 
 exports.down = async (knex) => {
     await Promise.all([
         tableNames.boat,
 
-        tableNames.extraEquipmentItem,
         tableNames.extraEquipment,
+        tableNames.extraEquipmentItem,
         
         tableNames.hullAndMotorization,
         tableNames.cockpitLayout,
