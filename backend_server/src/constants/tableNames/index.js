@@ -23,8 +23,8 @@ module.exports = {
     cockpitLayout: 'cockpit_layout', 	  	
     
     
-    extraEquipmentItem: 'extraEquipmentItem', 	  	 
-    extraEquipment: 'extraEquipment', 	  	 
+    extraEquipmentItem: 'extra_equipment_item', 	  	 
+    extraEquipment: 'extra_equipment', 	  	 
     
     boat: 'boat', 	  	 
 

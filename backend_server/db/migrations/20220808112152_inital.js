@@ -68,8 +68,8 @@ exports.up = async (knex) => {
         references(table, tableNames.roofSolution);
         references(table, tableNames.cockpitLayout);
         references(table, tableNames.platform);
-        referenceWithName(table, 'hull_color', tableNames.color);
-        referenceWithName(table, 'deck_color', tableNames.color);
+        referenceWithName(table, 'hull_color_id', tableNames.color);
+        referenceWithName(table, 'deck_color_id', tableNames.color);
         referenceWithName(table, 'upholstery_inner_id', tableNames.tapestry);
         referenceWithName(table, 'upholstery_outer_id', tableNames.tapestry);
         references(table, tableNames.extraEquipment);

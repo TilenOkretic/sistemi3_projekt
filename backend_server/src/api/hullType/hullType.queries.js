@@ -5,22 +5,22 @@ let fields = [ 'id', 'name' ];
 
 module.exports = {
     findAll() {
-        return db(tableNames.color).select(fields);
+        return db(tableNames.hullType).select(fields);
     },
     async find(name) {
-        const [ color ] = await db(tableNames.color)
+        const [ hullType ] = await db(tableNames.hullType)
             .select(fields)
             .where({
-                name,
+                name
             });
-        return color;
+        return hullType;
     },
     async get(id) {
-        const [ color ] = await db(tableNames.color)
+        const [ hullType ] = await db(tableNames.hullType)
             .select(fields)
             .where({
                 id
             });
-        return color;
+        return hullType;
     }
 };

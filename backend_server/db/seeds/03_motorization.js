@@ -9,12 +9,13 @@ exports.seed = async (knex) => {
     await knex(tableNames.motorization).del();
     
     let motorNames = [
-        '1-outboard-motor',
-        '2-outboard-motor',
-        '1-inboard-motor',
-        '2-inboard-motor',
-        '1-electric-inboard',
-        '2-electric-inboard',
+        '1x outboard',
+        '2x outboard',
+        '1x inboard',
+        '2x inboard',
+        '1x electric outboard',
+        '1x electric inboard',
+        '2x electric inboard',
     ];
 
     await motorNames.reduce(async (promise, motorName) => {

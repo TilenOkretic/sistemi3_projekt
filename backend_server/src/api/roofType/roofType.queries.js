@@ -1,26 +1,26 @@
 const db = require('../../db');
 const tableNames = require('../../constants/tableNames');
 
-let fields = [ 'id', 'name' ];
+const fields = [ 'id', 'name' ];
 
 module.exports = {
     findAll() {
-        return db(tableNames.color).select(fields);
+        return db(tableNames.roofType).select(fields);
     },
     async find(name) {
-        const [ color ] = await db(tableNames.color)
+        const [ roofType ] = await db(tableNames.roofType)
             .select(fields)
             .where({
                 name,
             });
-        return color;
+        return roofType;
     },
     async get(id) {
-        const [ color ] = await db(tableNames.color)
+        const [ roofType ] = await db(tableNames.roofType)
             .select(fields)
             .where({
                 id
             });
-        return color;
+        return roofType;
     }
 };
