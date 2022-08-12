@@ -38,17 +38,17 @@ module.exports = {
         return extraEquipment;
     },
     async insert(entry) {
-        let rear_bench_configuration = await extraEquipmentItemQueries.find(entry.rear_bench_configuration);
-        let table_configuration = await extraEquipmentItemQueries.find(entry.table_configuration);
-        let bow_sunbathing_cushions = await extraEquipmentItemQueries.find(entry.bow_sunbathing_cushions);
-        let side_rails_configuration = await extraEquipmentItemQueries.find(entry.side_rails_configuration);
-        let foredeck_stainless_steel_rails = await extraEquipmentItemQueries.find(entry.foredeck_stainless_steel_rails);
-        let sunbed_tent = await extraEquipmentItemQueries.find(entry.sunbed_tent);
-        let storage_consoles_behind_helm_seats = await extraEquipmentItemQueries.find(entry.storage_consoles_behind_helm_seats);
-        let steering_wheel_configuration = await extraEquipmentItemQueries.find(entry.steering_wheel_configuration);
+        let rear_bench_configuration = await extraEquipmentItemQueries.find(entry.rearBenchConfiguration);
+        let table_configuration = await extraEquipmentItemQueries.find(entry.tableConfiguration);
+        let bow_sunbathing_cushions = await extraEquipmentItemQueries.find(entry.bowSunbathingCushions);
+        let side_rails_configuration = await extraEquipmentItemQueries.find(entry.sideRailsConfiguration);
+        let foredeck_stainless_steel_rails = await extraEquipmentItemQueries.find(entry.foredeckStainlessSteelRails);
+        let sunbed_tent = await extraEquipmentItemQueries.find(entry.sunbedTent);
+        let storage_consoles_behind_helm_seats = await extraEquipmentItemQueries.find(entry.storageConsolesBehindHelmSeats);
+        let steering_wheel_configuration = await extraEquipmentItemQueries.find(entry.steeringWheelConfiguration);
         let windshield = await extraEquipmentItemQueries.find(entry.windshield);
-        let marine_carpet = await extraEquipmentItemQueries.find(entry.marine_carpet);
-        let additional_storage = await extraEquipmentItemQueries.find(entry.additional_storage);
+        let marine_carpet = await extraEquipmentItemQueries.find(entry.marineCarpet);
+        let additional_storage = await extraEquipmentItemQueries.find(entry.additionalStorage);
         
         const extraEquipment = await db('extra_equipment')
             .insert({

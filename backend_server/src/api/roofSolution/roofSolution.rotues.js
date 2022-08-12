@@ -5,14 +5,9 @@ const router = express.Router();
 
 const colorQueries = require('../color/color.queries');
 const roofTypeQueries = require('../roofType/roofType.queries');
-const roofSolutionQueries = require('./roofSolution.queries');
-const hullTypeQueries = require('../hullType/hullType.queries');
-const motorizationQueries = require('../motoriaztion/motorization.queries');
-const hullAndMotorizationQueries = require('../hullAndMotorization/hullAndMotorization.queries');
-const extraEquipmentQueries = require('../extraEquipment/extraEquipment.queries');
-const cockpitLayoutQueries = require('../cockpitLayout/cockpitLayout.queries');
 
 router.get('/', async (req, res, next) => {
+    res.json('depricated');
 });
 
 router.post('/', async (req, res, next) => {

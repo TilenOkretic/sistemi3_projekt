@@ -10,6 +10,7 @@ exports.seed = async (knex) => {
     
     let hullNames = [
         'planing',
+        'motor',
         'displacement',
         'proupulsion',
     ];
