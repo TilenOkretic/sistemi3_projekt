@@ -49,7 +49,7 @@ module.exports = {
         let windshield = await extraEquipmentItemQueries.find(entry.windshield);
         let marine_carpet = await extraEquipmentItemQueries.find(entry.marineCarpet);
         let additional_storage = await extraEquipmentItemQueries.find(entry.additionalStorage);
-        
+
         const extraEquipment = await db('extra_equipment')
             .insert({
                 'rear_bench_configuration': rear_bench_configuration === null ? null : rear_bench_configuration.id,

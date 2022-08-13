@@ -1,9 +1,7 @@
 const express = require('express');
-// const RoofSolution = require('./roofSolution.model');
+const boatQueries = require('../boat/boat.queries');
 
 const router = express.Router();
-
-const boatQueries = require('./boat.queries');
 
 let getRoofSolutionId = require('../roofSolution/getters');
 let getHullAndMotorizationId = require('../hullAndMotorization/getters');
@@ -12,15 +10,11 @@ let getCockpitLayoutId = require('../cockpitLayout/getters');
 let getPlatformId = require('../platform/getters');
 let getTapestryId = require('../tapestry/getters');
 let getColorId = require('../color/getters');
+const { getOrderId } = require('./boatOrder.utils');
 
-router.get('/', async (req, res, next) => {
-    let allBoats = await boatQueries.findAll();
-    res.json(allBoats);
-});
-
-// TODO: validation
+// TODO: handle boat order UPDATING
 router.post('/', async (req, res, next) => {
-    let boat = await boatQueries.findAll();
+    console.log(req.body);
     let newBoat = {};
 
     newBoat.roof_solution_id = await getRoofSolutionId(req.body.roofColor, req.body.roofType);
@@ -47,6 +41,7 @@ router.post('/', async (req, res, next) => {
     res.json({
         msg: `Boat configuration mail sent. Your order ID is: ${getOrderId(req.body)}`,
     });
+
 });
 
 module.exports = router;

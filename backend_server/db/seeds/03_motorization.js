@@ -13,9 +13,9 @@ exports.seed = async (knex) => {
         '2x outboard',
         '1x inboard',
         '2x inboard',
-        '1x electric outboard',
-        '1x electric inboard',
-        '2x electric inboard',
+        '1x electric-outboard',
+        '1x electric-inboard',
+        '2x electric-inboard',
     ];
 
     await motorNames.reduce(async (promise, motorName) => {

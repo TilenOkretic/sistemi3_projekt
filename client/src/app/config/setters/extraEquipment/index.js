@@ -34,13 +34,13 @@ let setHasMiniCupHolder = (miniCupHolder, api) => {
 };
 
 let setHasGalleyKitchen = (galleyKitchen, api) => {
-    galleyKitchen ? pushExtraEquipment('rearBenchConfiguration', 'galley kitchen', api) : popExtraEquipment('rearBenchConfiguration', api);
+    galleyKitchen ? pushExtraEquipment('rearBenchConfiguration', 'galleyKitchen', api) : popExtraEquipment('rearBenchConfiguration', api);
     
     return getHasExtraEquipment('rearBenchConfiguration', api);
 };
 
 let setHasRearBench = (rearBench, api) => {
-    rearBench ? pushExtraEquipment('rearBenchConfiguration', 'rear bench', api) : popExtraEquipment('rearBenchConfiguration', api);
+    rearBench ? pushExtraEquipment('rearBenchConfiguration', 'rearBench', api) : popExtraEquipment('rearBenchConfiguration', api);
     
     return getHasExtraEquipment('rearBenchConfiguration', api);
 };

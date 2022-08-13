@@ -4,7 +4,7 @@ import { createTableConfigurationListItem } from './item';
 
 let composeTableConfigurationList = (parent, api) => {
     parent.appendChild(createTableConfigurationListItem('normal', api));
-    parent.appendChild(createTableConfigurationListItem('loungeLayout', api));
+    !api.isModel21() ? parent.appendChild(createTableConfigurationListItem('loungeLayout', api)) : '';
     // TODO: lounge layout table with cushions
 };
 

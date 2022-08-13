@@ -1,7 +1,7 @@
 import { createHTMLButton } from '../../../../../../../sketchfab_webpack_engine/utils/buttons';
 import { closeHTMLList, openHTMLList } from '../../../../../../../sketchfab_webpack_engine/utils/listUtil';
 import { clearSelection, showSelection } from '../../../../../../../sketchfab_webpack_engine/utils/selection';
-import { setElectricInboardEngineCount, setHasElectricPropulsion, setHasMotorPropulsion, setOutboardMotorCount } from '../../../../../../config/setters/hullAndMotorization';
+import { setElectricInboardEngineCount, setHasElectricPropulsion, setHasMotorPropulsion, setMotorization, setOutboardMotorCount } from '../../../../../../config/setters/hullAndMotorization';
 import { loadElectricInboardMotor } from '../inboard';
 
 let openElectricPropulsionList = (api) => {
@@ -9,6 +9,8 @@ let openElectricPropulsionList = (api) => {
     setOutboardMotorCount(null, api);
     setHasMotorPropulsion(false, api);
     setHasElectricPropulsion(true, api);
+    
+    setMotorization('1x electric-inboard', api);
 
     // so that it loads when first clicking on button
     loadElectricInboardMotor(api);

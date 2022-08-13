@@ -101,8 +101,10 @@ export default class ConfigFinish extends Component {
         try {
             let marketing = document.querySelector('#option-marketing > input');
             let country = await getCountryCodeFromCountryName(document.querySelector('#option-country-input').value);
+            
             let countryCode = `${country.cca2}-${country.cca3}-${country.cioc}-${country.ccn3}`;
-            let request = await fetch(`${this.api.getAPIBackendURL()}/api/boat`, {
+            
+            let request = await fetch(`${this.api.getAPIBackendURL()}/api/boatOrder`, {
                 method: 'POST',
                 headers: { 'Content-type': 'application/json; charset=UTF-8' },
                 body: JSON.stringify(this.getConfigurationBody(optionalInfo, email, marketing, countryCode))
@@ -124,7 +126,7 @@ export default class ConfigFinish extends Component {
     }
 
     getConfigurationBody(optionalInfo, email, marketing, countryCode) {
-        return { ...this.api.defaultConfig, extraInfo: optionalInfo.value, country: countryCode, sendermail: email.value, marketing: marketing.checked, orderId: getOrderId(this.api) ? getOrderId(this.api) : '' };
+        return { ...this.api.defaultConfig, extraInfo: optionalInfo.value, country: countryCode, sendermail: email.value, marketing: marketing.checked, orderId: getOrderId(this.api) };
     }
 
     async buildErrorResponse(errorMsg, popupForm, cancelOrder, popupCard, popupHolder) {

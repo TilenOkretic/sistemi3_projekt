@@ -9,17 +9,17 @@ exports.seed = async (knex) => {
     await knex(tableNames.country).del();
     
     let slo = {
-        'country_code': 'SVN',
+        'country_code': 'SI-SVN-SLO-705',
         name: 'slovenia'
     };
 
     let it = {
-        'country_code': 'ITA',
+        'country_code': 'IT-ITA-ITA-380',
         name: 'italy'
     };
 
     let usa = {
-        'country_code': 'USA',
+        'country_code': 'US-USA-USA-840',
         name: 'united states of america'
     };
 

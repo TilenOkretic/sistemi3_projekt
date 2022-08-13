@@ -7,12 +7,17 @@ import { createSideRailsButton } from '../../../../utils/component/extraEquipmen
 import { createSideRailsList } from '../../../../utils/component/extraEquipment/sideRailsConfiguration/list';
 import { createSteeringWheelButton } from '../../../../utils/component/extraEquipment/steeringWheelConfiguration/button';
 import { createSteeringWheelConfigurationList } from '../../../../utils/component/extraEquipment/steeringWheelConfiguration/list';
+import { createTableConfigurationButton } from '../../../../utils/component/extraEquipment/tableConfiguration/button';
+import { createTableConfigurationList } from '../../../../utils/component/extraEquipment/tableConfiguration/list';
 
 export default (parent, api) => {
     let REARBENCH_CONFIGURATION_LIST = createRearBenchConfigurationList(api);
     let REARBENCH_CONFIGURATION_BUTTON = createRearBenchConfigurationButton(api);
 
-    let DKT_BTN = addCockpitExtra('dkt', api);
+    let TABLE_CONFIGURATION_BUTTON = createTableConfigurationButton(api);
+    let TABLE_CONFIGURATION_LIST = createTableConfigurationList(api);
+    // DEPRICATED: moved to tableConfiguration
+    // let DKT_BTN = addCockpitExtra('dkt', api);
     
     let SIDE_RAILS_LIST = createSideRailsList(api);
     let SIDE_RAILS_BUTTON = createSideRailsButton(api);
@@ -28,8 +33,9 @@ export default (parent, api) => {
 
     parent.addSubElement(REARBENCH_CONFIGURATION_BUTTON);
     parent.addSubElement(REARBENCH_CONFIGURATION_LIST);
-
-    parent.addSubElement(DKT_BTN);
+    
+    parent.addSubElement(TABLE_CONFIGURATION_BUTTON);
+    parent.addSubElement(TABLE_CONFIGURATION_LIST);
 
     parent.addSubElement(SIDE_RAILS_BUTTON);
     parent.addSubElement(SIDE_RAILS_LIST);
@@ -48,6 +54,7 @@ export default (parent, api) => {
     removeDom('extra-rearbenchconfiguration-codriverSeat-btn');
     showSelection('extra-siderail-chrome');
     showSelection('extra-steeringwheel-rubber'); 
-    showSelection(DKT_BTN);
+    showSelection('extra-tableconfiguration-normal');
+    
     showSelection(WDS_BTN); 
 };

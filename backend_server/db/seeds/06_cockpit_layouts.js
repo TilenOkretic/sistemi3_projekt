@@ -12,8 +12,8 @@ exports.seed = async (knex) => {
         'standard',
         'passenger',
         'lounge',
-        'console center',
-        'console side',
+        'central',
+        'side',
     ];
 
     await cockpitNames.reduce(async (promise, cockpitName) => {

@@ -1,5 +1,5 @@
 import { hideElementList, showElement } from '../../../../../../../sketchfab_webpack_engine/dictionary/model';
-import { setElectricInboardEngineCount, setElectricOutboardEngineCount, setHasInboardMotor, setHasOutboardMotor, setOutboardMotorCount } from '../../../../../../config/setters/hullAndMotorization';
+import { setElectricInboardEngineCount, setElectricOutboardEngineCount, setHasInboardMotor, setHasOutboardMotor, setMotorization, setOutboardMotorCount } from '../../../../../../config/setters/hullAndMotorization';
 import { getRegexForRearPlatform21 } from '../../../../../../regexLib/bathingPlatform/model21';
 
 export let loadMotorPropulsionOutboardMotor = (api) => {
@@ -11,6 +11,8 @@ export let loadMotorPropulsionOutboardMotor = (api) => {
     setOutboardMotorCount(1, api);
     setHasInboardMotor(false, api);
     setHasOutboardMotor(true, api);
+
+    setMotorization('1x outabord', api);
 
     showElement('motorPlaning.outboard.1x', api);
     hideElementList(hideElem, api);

@@ -9,8 +9,8 @@ exports.seed = async (knex) => {
     await knex(tableNames.platform).del();
     
     let platformNames = [
-        'no platform',
-        'permateek bathing platform with folding ladder',
+        'noPlatform',
+        'permateekBathingPlatform',
     ];
 
     await platformNames.reduce(async (promise, platformName) => {

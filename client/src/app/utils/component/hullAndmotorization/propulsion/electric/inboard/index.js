@@ -1,7 +1,7 @@
 import { hideElementList, showElementList } from '../../../../../../../sketchfab_webpack_engine/dictionary/model';
 import { domExists } from '../../../../../../../sketchfab_webpack_engine/utils/dom';
 import { clearSelection } from '../../../../../../../sketchfab_webpack_engine/utils/selection';
-import { setElectricInboardEngineCount, setElectricOutboardEngineCount, setHasInboardMotor, setHasOutboardMotor } from '../../../../../../config/setters/hullAndMotorization';
+import { setElectricInboardEngineCount, setElectricOutboardEngineCount, setHasInboardMotor, setHasOutboardMotor, setMotorization } from '../../../../../../config/setters/hullAndMotorization';
 import { getRegexForRearPlatform21Color } from '../../../../../../regexLib/bathingPlatform/model21/color';
 import { getRegexForRearPlatformSideRail } from '../../../../../../regexLib/sideRails/bathingPlatform';
 
@@ -11,6 +11,8 @@ export let loadElectricInboardMotor = (api) => {
     setElectricInboardEngineCount(1, api);
     setHasOutboardMotor(false, api);
     setHasInboardMotor(true, api);
+    
+    setMotorization('1x electric-inboard', api);
     
     let showReg = [
         'motorDisplacement.inboard.1x',

@@ -7,7 +7,7 @@ import { setBoatModel } from '../../../config/setters/boatModel';
 import { setCockpitLayout } from '../../../config/setters/cockpitLayout';
 import { setHasFrontGuardRail, setHasMiniCupHolder } from '../../../config/setters/extraEquipment';
 import { setHasStarboardBench } from '../../../config/setters/extraEquipment/starboardBench';
-import { setHasOutboardMotor, setOutboardMotorCount, setThrottleCount } from '../../../config/setters/hullAndMotorization';
+import { setHasOutboardMotor, setMotorization, setOutboardMotorCount, setThrottleCount } from '../../../config/setters/hullAndMotorization';
 import { setInnerCushioning } from '../../../config/setters/upholstery';
 import { getRegexForDeckTable } from '../../../regexLib/extraEquipment/tableConfiguration/deckTable';
 import { getRegexForMiniCupHolder } from '../../../regexLib/extraEquipment/miniCupHolder';
@@ -22,6 +22,7 @@ import { hideAll } from '../../../utils/dictionary/boatDictionaryUtil';
 import { standardLayoutShowList } from '../../../utils/update/all/cockpitLayout/standard';
 import { outboardMotorShowList } from '../../../utils/update/all/motorization/outboardMotor';
 import { platformShowList } from '../../../utils/update/all/platform';
+import { setPlatformVisible } from '../../../config/setters/bathingPlatform';
 
 export default class Card32 extends Card {
     constructor(configuratorRef) {
@@ -41,9 +42,17 @@ export default class Card32 extends Card {
         setHasStarboardBench(true, api);
         setHasMiniCupHolder(true, api);
         setThrottleCount('dual', api);
+
+        setPlatformVisible('noPlatform', api);
+
+        setMotorization('2x outabord', api);
     }
 
     loadDefaultConfiguration(api) {
+        
+        alert('This model does not work with this version of the app!\nPlease select one of the following models: 21, 23 or 25');
+        window.location.reload();
+
         hideAll(api);
 
         let showList = [];

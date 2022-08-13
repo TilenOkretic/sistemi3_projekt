@@ -38,6 +38,8 @@ export default class BoatConfigurator extends Application {
             this.addCard(new Card21(this));
             this.addCard(new Card23(this));
             this.addCard(new Card25(this));
+
+            // TODO: this cards are not implemented because 28 / 32 models don't work correctly
             this.addCard(new Card28(this));
             this.addCard(new Card32(this));
         }

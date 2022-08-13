@@ -14,7 +14,7 @@ exports.seed = async (knex) => {
         'tapioca',
         'taupe',
         'tonic',
-        'tonic diamonds',
+        'tonicDiamonds',
     ];
 
     await tapestryNames.reduce(async (promise, tapestryName) => {

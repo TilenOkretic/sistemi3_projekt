@@ -30,21 +30,24 @@ let setThrottleCount = (throttle, api) => {
 };
 
 let setOutboardMotorCount = (count, api) => {
-    setConfigKeyValuePair('outboardMotorCount', count, api);
+    setConfigKeyValuePair('outboard', count, api);
 };
 
 let setInboardMotorCount = (count, api) => {
-    setConfigKeyValuePair('inboardMotorCount', count, api);
+    setConfigKeyValuePair('inboard', count, api);
 };
 
 let setElectricInboardEngineCount = (count, api) => {
-    setConfigKeyValuePair('electricInboardEngineCount', count, api);
+    setConfigKeyValuePair('electric-inboard', count, api);
 };
-
 
 let setElectricOutboardEngineCount = (count, api) => {
-    setConfigKeyValuePair('electricOutboardEngineCount', count, api);
+    setConfigKeyValuePair('electric-outboard', count, api);
 };
+
+let setMotorization = (motorization, api) => {
+    setConfigKeyValuePair('motorization', motorization, api);
+}
 
 export {
     setHullType,
@@ -58,4 +61,5 @@ export {
     setInboardMotorCount,
     setElectricInboardEngineCount,
     setElectricOutboardEngineCount,
+    setMotorization,
 };

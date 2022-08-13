@@ -13,7 +13,7 @@ export let loadBathingPlatform = async (api) => {
         showElement(getRegexForRearPlatformSideRail(api), api);
         showElement(getRegexForRearPlatformConstruction(), api);
     
-        setPlatformVisible(true, api);
+        setPlatformVisible('permateekBathingPlatform', api);
         showSelection('bathingPlatform-pbpfl-platform');
         clearSelection('bathingPlatform-no-platform');
     }

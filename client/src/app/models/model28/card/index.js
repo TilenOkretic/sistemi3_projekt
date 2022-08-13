@@ -7,7 +7,7 @@ import { setBoatModel } from '../../../config/setters/boatModel';
 import { setCockpitLayout } from '../../../config/setters/cockpitLayout';
 import { setHasFrontGuardRail, setHasMiniCupHolder } from '../../../config/setters/extraEquipment';
 import { setHasStarboardBench } from '../../../config/setters/extraEquipment/starboardBench';
-import { setHasInboardMotor, setInboardMotorCount, setThrottleCount } from '../../../config/setters/hullAndMotorization';
+import { setHasInboardMotor, setInboardMotorCount, setMotorization, setThrottleCount } from '../../../config/setters/hullAndMotorization';
 import { setInnerCushioning } from '../../../config/setters/upholstery';
 import { getRegexForDeckTable } from '../../../regexLib/extraEquipment/tableConfiguration/deckTable';
 import { getRegexForMiniCupHolder } from '../../../regexLib/extraEquipment/miniCupHolder';
@@ -37,14 +37,20 @@ export default class Card28 extends Card {
         setInboardMotorCount(2, api);
         setCockpitLayout('standard', api);    
         setInnerCushioning('tonicDiamonds', api);
-        setPlatformVisible(true, api);
+        setPlatformVisible('permateekBathingPlatform', api);
         setHasFrontGuardRail(true, api);
         setHasMiniCupHolder(true, api);
         setHasStarboardBench(true, api);
         setThrottleCount('dual', api);
+
+        setMotorization('2x inboard', api);
     }
 
     loadDefaultConfiguration(api) {
+
+        alert('This model does not work with this version of the app!\nPlease select one of the following models: 21, 23 or 25');
+        window.location.reload();
+
         hideAll(api);
 
         let showList = [];

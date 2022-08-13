@@ -15,6 +15,6 @@ export let removePlafrom = async (api) => {
         
         clearSelection('bathingPlatform-pbpfl-platform');
         showSelection(document.getElementById('bathingPlatform-no-platform'));
-        setPlatformVisible(false, api);
+        setPlatformVisible('noPlatform', api);
     }
 };

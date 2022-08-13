@@ -7,7 +7,7 @@ import { setBoatModel } from '../../../config/setters/boatModel';
 import { setCockpitLayout } from '../../../config/setters/cockpitLayout';
 import { setHasFrontGuardRail } from '../../../config/setters/extraEquipment';
 import { setHasStarboardBench } from '../../../config/setters/extraEquipment/starboardBench';
-import { setHasInboardMotor, setInboardMotorCount, setThrottleCount } from '../../../config/setters/hullAndMotorization';
+import { setHasInboardMotor, setInboardMotorCount, setMotorization, setThrottleCount } from '../../../config/setters/hullAndMotorization';
 import { setInnerCushioning } from '../../../config/setters/upholstery';
 import { getRegexForDeckTable } from '../../../regexLib/extraEquipment/tableConfiguration/deckTable';
 import { getRegexForFloorMainBlack } from '../../../regexLib/flooring';
@@ -40,10 +40,12 @@ export default class Card23 extends Card {
         setInboardMotorCount(1, api);
         setCockpitLayout('standard', api);
         setInnerCushioning('tonicDiamonds', api);            
-        setPlatformVisible(true, api);
+        setPlatformVisible('permateekBathingPlatform', api);
         setHasFrontGuardRail(true, api);
         setHasStarboardBench(true, api);
         setThrottleCount('single', api);
+
+        setMotorization('1x inboard', api);
     }
 
     loadDefaultConfiguration(api) {

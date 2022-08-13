@@ -6,7 +6,7 @@ import { getHasPiping } from '../../../config/getters/upholstery';
 import { setBoatModel } from '../../../config/setters/boatModel';
 import { setCockpitLayout } from '../../../config/setters/cockpitLayout';
 import { setHasWindshield, setSteeringWheelType } from '../../../config/setters/extraEquipment';
-import { setElectricInboardEngineCount, setHasElectricPropulsion, setThrottleCount } from '../../../config/setters/hullAndMotorization';
+import { setElectricInboardEngineCount, setHasElectricPropulsion, setMotorization, setThrottleCount } from '../../../config/setters/hullAndMotorization';
 import { setInnerCushioning } from '../../../config/setters/upholstery';
 import { getRegexForDeckTable } from '../../../regexLib/extraEquipment/tableConfiguration/deckTable';
 import { getRegexForMarineCarpet } from '../../../regexLib/extraEquipment/marineCarpet';
@@ -22,6 +22,7 @@ import { getRegexForConsoleSteeringWheel } from '../../../regexLib/steeringWheel
 import { hideAll } from '../../../utils/dictionary/boatDictionaryUtil';
 import { consoleLayoutCentralShowList } from '../../../utils/update/all/cockpitLayout/consoleSide';
 import { model21ShowList } from '../../../utils/update/all/motorization/model21';
+import { setPlatformVisible } from '../../../config/setters/bathingPlatform';
 
 export class Card21 extends Card {
     
@@ -41,6 +42,10 @@ export class Card21 extends Card {
         setHasWindshield('true', api);
         setThrottleCount('single', api);
         setSteeringWheelType('rubber', api);
+        
+        setPlatformVisible('noPlatform', api);
+
+        setMotorization('1x electric-inboard', api);
     }
 
     loadDefaultConfiguration(api) {

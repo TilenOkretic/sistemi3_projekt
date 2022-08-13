@@ -2,11 +2,12 @@ import Card from '../../../../sketchfab_webpack_engine/card';
 import { showElementList } from '../../../../sketchfab_webpack_engine/dictionary/model';
 import standardDefaultConfiguration from '../../../config/getters/standardDefaultConfiguration';
 import { getHasPiping } from '../../../config/getters/upholstery';
+import { setPlatformVisible } from '../../../config/setters/bathingPlatform';
 import { setBoatModel } from '../../../config/setters/boatModel';
 import { setCockpitLayout } from '../../../config/setters/cockpitLayout';
 import { setHasFrontGuardRail } from '../../../config/setters/extraEquipment';
 import { setHasStarboardBench } from '../../../config/setters/extraEquipment/starboardBench';
-import { setHasOutboardMotor, setOutboardMotorCount, setThrottleCount } from '../../../config/setters/hullAndMotorization';
+import { setHasOutboardMotor, setMotorization, setOutboardMotorCount, setThrottleCount } from '../../../config/setters/hullAndMotorization';
 import { setInnerCushioning } from '../../../config/setters/upholstery';
 import { getRegexForDeckTable } from '../../../regexLib/extraEquipment/tableConfiguration/deckTable';
 import { getRegexForFloorMainBlack } from '../../../regexLib/flooring';
@@ -40,6 +41,10 @@ export default class Card25 extends Card {
         setHasFrontGuardRail(true, api);
         setHasStarboardBench(true, api);            
         setThrottleCount('single', api);
+
+        setPlatformVisible('noPlatform', api);
+
+        setMotorization('1x outboard', api)
     }
 
     loadDefaultConfiguration(api) {

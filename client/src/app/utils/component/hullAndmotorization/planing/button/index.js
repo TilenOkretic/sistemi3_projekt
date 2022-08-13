@@ -1,11 +1,15 @@
 import { createHTMLButton } from '../../../../../../sketchfab_webpack_engine/utils/buttons';
 import { domExists } from '../../../../../../sketchfab_webpack_engine/utils/dom';
 import { closeHTMLList, openHTMLList } from '../../../../../../sketchfab_webpack_engine/utils/listUtil';
-import { setInboardMotorCount } from '../../../../../config/setters/hullAndMotorization';
+import { setInboardMotorCount, setMotorization } from '../../../../../config/setters/hullAndMotorization';
 import { loadMotorHull } from '../../../../hulls/hullUtil';
 
 let openPlaningList = (api) => {
-    api.isModelInboard() ? setInboardMotorCount(api.isModel23() ? 1 : 2, api) : '';
+    if(api.isModelInboard()) {
+        setInboardMotorCount(api.isModel23() ? 1 : 2, api)
+        setMotorization(api.isModel23() ? '1 inboard': '2 inboard', api);
+    };
+
     loadMotorHull(api);
     domExists('planing-list') ? openHTMLList('planing-list') : '';
     domExists('displacement-list') ? closeHTMLList('displacement-list') : '';

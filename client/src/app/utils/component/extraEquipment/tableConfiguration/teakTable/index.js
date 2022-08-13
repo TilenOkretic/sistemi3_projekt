@@ -10,15 +10,17 @@ export let loadNormalDeckTable = async (api) => {
     
     if(!getHasDeckTable(api)){ 
         showElement(getRegexForDeckTable(), api);
-        hideElement(getRegexForDeckTableLoungeLayout(), api);
-        hideElementList([
-            getRegexForTableCushioning('inner', api),
-            getRegexForTableCushioning('outer', api),
-        ], api);
+        if(!api.isModel21()) {
+            hideElement(getRegexForDeckTableLoungeLayout(), api);
+            hideElementList([
+                getRegexForTableCushioning('inner', api),
+                getRegexForTableCushioning('outer', api),
+            ], api);
+        }
     } else {
         hideElement(getRegexForDeckTable(), api);
     }
     setHasDeckTable(!getHasDeckTable(api), api);
-    clearSelection('extra-tableconfiguration-loungeLayout', true);
-    !getHasDeckTable(api) ? clearSelection('extra-tableconfiguration-normal', true) : '';
+    !api.isModel21() ? clearSelection('extra-tableconfiguration-loungeLayout') : '';
+    !getHasDeckTable(api) ? clearSelection('extra-tableconfiguration-normal') : '';
 };

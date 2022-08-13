@@ -2,8 +2,8 @@ import { showSelection } from '../../../../../sketchfab_webpack_engine/utils/sel
 import { createLayoutButton } from '../../../../utils/component/cockpitLayout';
 export default (parent, api) => {
 
-    let CONSOLE_CENTER = createLayoutButton(api, 'central');        
-    let CONSOLE_SIDE = createLayoutButton(api, 'side');
+    let CONSOLE_CENTER = createLayoutButton('central', api);        
+    let CONSOLE_SIDE = createLayoutButton('side', api);
 
     parent.addSubElement(CONSOLE_CENTER);
     parent.addSubElement(CONSOLE_SIDE);

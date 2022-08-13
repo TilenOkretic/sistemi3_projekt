@@ -1,12 +1,12 @@
 import { getConfigFromKey } from '../../../../sketchfab_webpack_engine/config';
 
-let getOutboardMotorCount = (api) => getConfigFromKey('outboardMotorCount', api);
+let getOutboardMotorCount = (api) => getConfigFromKey('outboard', api);
 
-let getInboardMotorCount = (api) => getConfigFromKey('inboardMotorCount', api);
+let getInboardMotorCount = (api) => getConfigFromKey('inboard', api);
 
-let getElectricInboardEngineCount = (api) => getConfigFromKey('electricInboardEngineCount', api);
+let getElectricInboardEngineCount = (api) => getConfigFromKey('electric-inboard', api);
 
-let getElectricOutboardEngineCount = (api) => getConfigFromKey('electricOutboardEngineCount', api);
+let getElectricOutboardEngineCount = (api) => getConfigFromKey('electric-outboard', api);
 
 let getThrottleCount = (api) => getConfigFromKey('throttle', api);
 
