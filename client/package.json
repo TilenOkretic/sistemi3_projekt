@@ -5,7 +5,7 @@
   "main": "app.js",
   "scripts": {
     "dev": "webpack serve --open --config webpack.dev.js",
-    "build": "NODE_ENV=production webpack --config webpack.prod.js && cd build/ && git checkout v3 && rm -rf ./* || true && cp -r ../dist/* . && cd .. && ./publish"
+    "build": "NODE_ENV=production webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
