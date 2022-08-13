@@ -21,5 +21,5 @@ export let loadSideConsoleLayout = (api) => {
    
     disableHTMLList('extra-rearbenchconfiguration-btn', 'rearbenchconfiguration-list');
 
-    clearExtraOption('dkt');
+    clearSelection('extra-tableconfiguration-normal');
 };

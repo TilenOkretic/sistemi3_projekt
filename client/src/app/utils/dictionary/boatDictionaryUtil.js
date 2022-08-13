@@ -50,6 +50,8 @@ let hideCurrentCushioning = (api) => hide((key) =>
     key.includes(getRegexForLoungeLayoutPortPiping()) ||
     key.includes(getRegexForLoungeLayoutStarboardPiping()) ||
     key.includes('cushioning.benches.port.piping') ||
+    key.includes(`cushioning.benches.outer.${getOuterCushioning(api)}`) ||
+    key.includes(`cushioning.benches.inner.${getInnerCushioning(api)}`) ||
     key.includes('cushioning.benches.starboard.piping'),
 api);
 

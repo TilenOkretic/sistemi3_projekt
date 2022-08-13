@@ -5,7 +5,7 @@ let getInnerCushioning = (api) => getConfigFromKey('innerCushioning', api);
 
 let getOuterCushioning = (api) => getConfigFromKey('outerCushioning', api);
 
-let getHasPiping = (api) => getHasExtraEquipment('piping', api);
+let getHasPiping = (api) => getHasExtraEquipment('piping', 'piping', api);
 
 export {
     getInnerCushioning,

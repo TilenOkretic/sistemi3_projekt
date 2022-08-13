@@ -9,12 +9,13 @@ exports.seed = async (knex) => {
     await knex(tableNames.color).del();
     
     let colorNames = [
+        'none',
         'darkAntracite',
         'marineBlue',
         'pigeonBlue',
-        'pureGray',
+        'pureGrey',
         'royalBlue',
-        'sapphireGray',
+        'saphirGrey',
         'white',
     ];
 

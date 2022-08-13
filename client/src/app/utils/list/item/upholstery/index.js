@@ -13,12 +13,13 @@ export let createUpholsteryListItem = async (type, color, api) => {
     let colorImgRef = color;
     let out = await createListItem(`tapestry-${type}-${color}`, type, colorImgRef, api, () => {
         hideCurrentCushioning(api);
-
         type == 'outer' ? setOuterCushioning(color, api) : setInnerCushioning(color, api);
         
         let showReg = getRegexForCushioning(getCockpitLayout(api), api);
         mergeArrays(showReg, getHasPiping(api) ? getRegexForPiping(api) : []);
         showElementList(showReg, api);
+
+        console.log(type, color);
 
         let clrItems = document.getElementsByClassName(type);
         for (let i = 0; i < clrItems.length; i++) {

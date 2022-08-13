@@ -12,7 +12,7 @@ export let loadMotorPropulsionOutboardMotor = (api) => {
     setHasInboardMotor(false, api);
     setHasOutboardMotor(true, api);
 
-    setMotorization('1x outabord', api);
+    setMotorization('1x outboard', api);
 
     showElement('motorPlaning.outboard.1x', api);
     hideElementList(hideElem, api);

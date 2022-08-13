@@ -6,7 +6,7 @@ import { loadElectricHull } from '../../../../hulls/hullUtil';
 
 let openDisplacementList = (api) => {
     setElectricInboardEngineCount(1, api);
-    setMotorization('1 electric-inboard', api)
+    setMotorization('1x electric-inboard', api)
     loadElectricHull(api);
 
     clearSelection('motor-displacement-2-inboard-btn');

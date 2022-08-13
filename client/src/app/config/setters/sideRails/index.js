@@ -1,7 +1,7 @@
-import { setConfigKeyValuePair } from '../../../../sketchfab_webpack_engine/config';
+import { pushExtraEquipment } from '../extraEquipment';
 
 let setSideRailType = (type, api) => {
-    setConfigKeyValuePair('sideRail', type, api);
+    pushExtraEquipment('sideRailsConfiguration', type, api);
 };
 
 export {

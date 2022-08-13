@@ -7,7 +7,7 @@ import { loadMotorHull } from '../../../../hulls/hullUtil';
 let openPlaningList = (api) => {
     if(api.isModelInboard()) {
         setInboardMotorCount(api.isModel23() ? 1 : 2, api)
-        setMotorization(api.isModel23() ? '1 inboard': '2 inboard', api);
+        setMotorization(api.isModel23() ? '1x inboard': '2x inboard', api);
     };
 
     loadMotorHull(api);

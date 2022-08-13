@@ -1,28 +1,28 @@
 import { getConfigFromKey } from '../../../../sketchfab_webpack_engine/config';
 
-let getHasExtraEquipment = (extraeq, api) => api.defaultConfig.extraEquipment[extraeq] != null;
+let getHasExtraEquipment = (extraeq, value, api) => api.defaultConfig.extraEquipment[extraeq] == value;
 
 let getSteeringWheelType = (api) => getConfigFromKey('steeringWheel', api);
 
-let getHasMiniCupHolder = (api) => getHasExtraEquipment('miniCupHolder', api);
+let getHasMiniCupHolder = (api) => getHasExtraEquipment('miniCupHolder', 'miniCupHolder', api);
 
-let getHasAdditionalStorage = (api) => getHasExtraEquipment('additionalStorage', api);
+let getHasAdditionalStorage = (api) => getHasExtraEquipment('additionalStorage', 'additionalStorage', api);
 
-let getHasMarineCarpet = (api) => getHasExtraEquipment('marineCarpet', api);
+let getHasMarineCarpet = (api) => getHasExtraEquipment('marineCarpet','marineCarpet', api);
 
-let getHasGalleyKitchen = (api) => getHasExtraEquipment('galleyKitchen', api);
+let getHasGalleyKitchen = (api) => getHasExtraEquipment('rearBenchConfiguration', 'galleyKitchen', api);
 
-let getHasRearBench = (api) => getHasExtraEquipment('rearBench', api);
+let getHasRearBench = (api) => getHasExtraEquipment('rearBenchConfiguration', 'rearBench', api);
 
-let getHasWindshield = (api) => getHasExtraEquipment('windshield', api);
+let getHasWindshield = (api) => getHasExtraEquipment('windshield', 'windshield', api);
 
-let getHasDeckTable = (api) => getHasExtraEquipment('deckTable', api);
+let getHasDeckTable = (api) => getHasExtraEquipment('tableConfiguration', 'deckTable', api);
 
-let getHasBowCushioning = (api) => getHasExtraEquipment('bowCushioning', api);
+let getHasBowCushioning = (api) => getHasExtraEquipment('bowCushioning', 'bowCushioning', api);
 
-let getHasFrontGuardRail = (api) => getHasExtraEquipment('frontGuardRail', api);
+let getHasFrontGuardRail = (api) => getHasExtraEquipment('frontGuardRail', 'frontGuardRail', api);
 
-let getHasSunbedTent = (api) => getHasExtraEquipment('sunbedTent', api);
+let getHasSunbedTent = (api) => getHasExtraEquipment('sunbedTent', 'sunbedTent', api);
 
 export {
     getHasExtraEquipment,

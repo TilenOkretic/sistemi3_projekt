@@ -45,12 +45,12 @@ export default class Card32 extends Card {
 
         setPlatformVisible('noPlatform', api);
 
-        setMotorization('2x outabord', api);
+        setMotorization('2x outboard', api);
     }
 
     loadDefaultConfiguration(api) {
         
-        alert('This model does not work with this version of the app!\nPlease select one of the following models: 21, 23 or 25');
+        alert('This model does not work with this version of the app!\nPlease select one of the following models: 23 or 25');
         window.location.reload();
 
         hideAll(api);

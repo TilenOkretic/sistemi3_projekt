@@ -125,9 +125,12 @@ let getRegexForCushioning = (type, api) => {
                 `cushioning.driverSeat.outer.${getOuterCushioning(api)}`
             ];
         case 'central':
+            // TODO: inner and outer colors are flipped on the model
+            let oc = getRegexForCentralCushioningUpdate('outer', api);
+            let ic = getRegexForCentralCushioningUpdate('inner', api); 
             return [ 
-                ...getRegexForCentralCushioningUpdate('inner', api),
-                ...getRegexForCentralCushioningUpdate('outer', api),
+                ...ic,
+                ...oc,
             ];
         case 'side': 
             return [

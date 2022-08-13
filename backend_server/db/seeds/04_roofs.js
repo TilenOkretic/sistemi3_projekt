@@ -9,7 +9,7 @@ exports.seed = async (knex) => {
     await knex(tableNames.roofType).del();
     
     let roofNames = [
-        'noRoof',
+        'none',
         'hht',
         't-top',
         'bimini',

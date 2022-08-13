@@ -7,7 +7,7 @@ import { getRegexForDeckTableLoungeLayout } from '../../../../../regexLib/extraE
 import { getRegexForTableCushioning } from '../../../../../regexLib/upholstery/tableConfiguration/loungeLayout';
 
 export let loadNormalDeckTable = async (api) => {
-    
+    console.log(getHasDeckTable(api));
     if(!getHasDeckTable(api)){ 
         showElement(getRegexForDeckTable(), api);
         if(!api.isModel21()) {

@@ -16,11 +16,9 @@ export let addGalleyKitchen = async (api) => {
     let  BEN_BTN = document.querySelector('#extra-rearbenchconfiguration-rearBench-btn');
     
     if (!getHasGalleyKitchen(api)) {
-
-        setHasGalleyKitchen( true, api);
-        
         if(getIsCockpitLayoutLounge(api)) {
-
+            setHasGalleyKitchen(true, api);
+            
             if(getHasStarboardBench(api)) {
                 hideElementList([
                     `cushioning.coDriverSeat.inner.${getInnerCushioning(api)}`,
@@ -37,8 +35,10 @@ export let addGalleyKitchen = async (api) => {
                 showElement(getRegexForGalleyKitchenStarboard(), api);
             }
             
-        } else {
+        } 
+        else {
             setHasRearBench( false, api);
+            setHasGalleyKitchen(true, api);
             let show = api.isModel21() ? getRegexForGalleyKitchenStarboard21() : getRegexForGalleyKitchenRear();
             let hide = getRegexForRearBenchCushioning(api);
             hide.push(getRegexForRearBench());

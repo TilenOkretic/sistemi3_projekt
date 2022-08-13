@@ -5,7 +5,7 @@ import standardDefaultConfiguration from '../../../config/getters/standardDefaul
 import { getHasPiping } from '../../../config/getters/upholstery';
 import { setBoatModel } from '../../../config/setters/boatModel';
 import { setCockpitLayout } from '../../../config/setters/cockpitLayout';
-import { setHasWindshield, setSteeringWheelType } from '../../../config/setters/extraEquipment';
+import { setHasDeckTable, setHasWindshield, setSteeringWheelType } from '../../../config/setters/extraEquipment';
 import { setElectricInboardEngineCount, setHasElectricPropulsion, setMotorization, setThrottleCount } from '../../../config/setters/hullAndMotorization';
 import { setInnerCushioning } from '../../../config/setters/upholstery';
 import { getRegexForDeckTable } from '../../../regexLib/extraEquipment/tableConfiguration/deckTable';
@@ -23,6 +23,7 @@ import { hideAll } from '../../../utils/dictionary/boatDictionaryUtil';
 import { consoleLayoutCentralShowList } from '../../../utils/update/all/cockpitLayout/consoleSide';
 import { model21ShowList } from '../../../utils/update/all/motorization/model21';
 import { setPlatformVisible } from '../../../config/setters/bathingPlatform';
+import { setSideRailType } from '../../../config/setters/sideRails';
 
 export class Card21 extends Card {
     
@@ -42,13 +43,18 @@ export class Card21 extends Card {
         setHasWindshield('true', api);
         setThrottleCount('single', api);
         setSteeringWheelType('rubber', api);
+        setHasDeckTable(true, api);
         
         setPlatformVisible('noPlatform', api);
+        setSideRailType('chrome', api);
 
         setMotorization('1x electric-inboard', api);
     }
 
     loadDefaultConfiguration(api) {
+
+        // alert('This model does not work with this version of the app!\nPlease select one of the following models: 23 or 25');
+        // window.location.reload();
 
         hideAll(api);
 

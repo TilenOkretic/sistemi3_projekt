@@ -17,7 +17,7 @@ export let addRearBench = (api) => {
         clearSelection(GAK_BTN);
         return;
     }
-
+    
     if (getHasGalleyKitchen(api)) {
 
         setHasGalleyKitchen(false, api);

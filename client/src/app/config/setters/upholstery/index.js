@@ -12,7 +12,7 @@ let setOuterCushioning = (outerCushioning, api) => {
 
 let setHasPiping = (piping, api) => {
     piping ? pushExtraEquipment('piping', 'piping', api) : popExtraEquipment('piping', api);
-    return getHasExtraEquipment('piping', api);
+    return getHasExtraEquipment('piping', 'piping', api);
 };
 
 export {

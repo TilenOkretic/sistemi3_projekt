@@ -7,10 +7,18 @@ let composeInnerTapestryList = async (parent, api) => {
     
     for(let key in api.componentDictionary) {
         /*  Here we look only for PORT inner benches cushioning because if we also look for STARBOARD it would create duplicate LIST ITEMS */
-        if(key.includes(getRegexForBenchesCushinongPortType('inner'))) {
-            let splitkey = key.split('.'); 
-            tapestry = splitkey[splitkey.length - 1];
-            parent.appendChild(await createUpholsteryListItem('inner', tapestry, api));
+        if(!api.isModel21()) {
+            if(key.includes(getRegexForBenchesCushinongPortType('inner'))) {
+                let splitkey = key.split('.'); 
+                tapestry = splitkey[splitkey.length - 1];
+                parent.appendChild(await createUpholsteryListItem('inner', tapestry, api));
+            }
+        } else {
+            if(key.includes(`cushioning.benches.inner`)) {
+                let splitkey = key.split('.'); 
+                tapestry = splitkey[splitkey.length - 1];
+                parent.appendChild(await createUpholsteryListItem('inner', tapestry, api));
+            }
         }
         // TODO: handle cushinong loading for models that are NOT 23
     }
@@ -21,10 +29,18 @@ let composeOuterTapestryList = async (parent, api) => {
     
     for(let key in api.componentDictionary) {
         /*  Here we look only for PORT outer benches cushioning because if we also look for STARBOARD it would create duplicate LIST ITEMS */
-        if (key.includes(getRegexForBenchesCushinongPortType('outer'))) {
-            let splitkey = key.split('.'); 
-            tapestry = splitkey[splitkey.length - 1];
-            parent.appendChild(await createUpholsteryListItem('outer', tapestry, api));
+        if(!api.isModel21()) {
+            if (key.includes(getRegexForBenchesCushinongPortType('outer'))) {
+                let splitkey = key.split('.'); 
+                tapestry = splitkey[splitkey.length - 1];
+                parent.appendChild(await createUpholsteryListItem('outer', tapestry, api));
+            }
+        } else {
+            if (key.includes('cushioning.benches.outer')) {
+                let splitkey = key.split('.'); 
+                tapestry = splitkey[splitkey.length - 1];
+                parent.appendChild(await createUpholsteryListItem('outer', tapestry, api));
+            }
         }
         // TODO: handle cushinong loading for models that are NOT 23
     }
