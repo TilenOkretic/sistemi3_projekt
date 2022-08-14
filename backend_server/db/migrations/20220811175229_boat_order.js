@@ -30,8 +30,7 @@ exports.up = async (knex) => {
     await createTable(knex, tableNames.boatOrder, (table) => {
         references(table, tableNames.boat);
         references(table, tableNames.distributor);
-        table.string('email', 254).notNullable().unique();
-        table.string('name', 50).notNullable().unique();
+        table.string('email', 254).notNullable();
     });
 };
 
