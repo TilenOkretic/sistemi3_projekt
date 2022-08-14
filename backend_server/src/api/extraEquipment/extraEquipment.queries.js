@@ -40,9 +40,9 @@ module.exports = {
     async insert(entry) {
         let rear_bench_configuration = await extraEquipmentItemQueries.find(entry.rearBenchConfiguration);
         let table_configuration = await extraEquipmentItemQueries.find(entry.tableConfiguration);
-        let bow_sunbathing_cushions = await extraEquipmentItemQueries.find(entry.bowSunbathingCushions);
+        let bow_sunbathing_cushions = await extraEquipmentItemQueries.find(entry.bowCushioning);
         let side_rails_configuration = await extraEquipmentItemQueries.find(entry.sideRailsConfiguration);
-        let foredeck_stainless_steel_rails = await extraEquipmentItemQueries.find(entry.foredeckStainlessSteelRails);
+        let foredeck_stainless_steel_rails = await extraEquipmentItemQueries.find(entry.frontGuardRail);
         let sunbed_tent = await extraEquipmentItemQueries.find(entry.sunbedTent);
         let storage_consoles_behind_helm_seats = await extraEquipmentItemQueries.find(entry.storageConsolesBehindHelmSeats);
         let steering_wheel_configuration = await extraEquipmentItemQueries.find(entry.steeringWheelConfiguration);

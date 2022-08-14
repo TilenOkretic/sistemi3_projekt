@@ -12,8 +12,9 @@ exports.seed = async (knex) => {
         'none',
         'hht',
         't-top',
-        'bimini',
-        'sprayhood bimini',
+        'bimini-small',
+        'bimini-standard',
+        'bimini-spyhood',
     ];
 
     await roofNames.reduce(async (promise, roofName) => {
