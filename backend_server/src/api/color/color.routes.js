@@ -11,22 +11,6 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:name', async (req, res, next) => {
-    // const { id } = req.params;
-    // try {
-    //     if(isNaN(id)) {
-    //         const err = new Error('Invalid ID');
-    //         err.status(422);
-    //         throw err;
-    //     } else {
-    //         let color = await queries.get(id);
-    //         if(color) {
-    //             return res.json(color);
-    //         } 
-    //         return next();
-    //     }
-    // } catch (error) {
-    //     next(error);
-    // }
     const { name } = req.params;
     let { id: cid } = await colorQueries.find(name);
     res.json(cid);

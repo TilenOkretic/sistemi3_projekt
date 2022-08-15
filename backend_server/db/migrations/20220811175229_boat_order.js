@@ -28,6 +28,7 @@ exports.up = async (knex) => {
     });
 
     await createTable(knex, tableNames.boatOrder, (table) => {
+        table.string('order_id', 32).notNullable().primary();
         references(table, tableNames.boat);
         references(table, tableNames.distributor);
         table.string('email', 254).notNullable();

@@ -11,7 +11,12 @@ const { getOrderId } = require('./boatOrder.utils');
 
 // TODO: handle boat order UPDATING
 router.post('/', async (req, res, next) => {
-    console.log(req.body);
+    // console.log(req.body);
+
+    let orderId = getOrderId(req.body);
+    
+    let exists = await boatOrderQueries.find(orderId);
+    
     let newBoat = await createNewBoatObject(req.body);
 
     let result = await boatQueries.insert(newBoat);
@@ -21,15 +26,20 @@ router.post('/', async (req, res, next) => {
     let { id: distributor_id } = await distributorQueries.find(req.body.country);
 
     let newBoatOrder = {
+        'order_id': orderId,
         'boat_id': boatId,
         'distributor_id': distributor_id,		
         'email': req.body.sendermail,
     };
 
-    boatOrderQueries.insert(newBoatOrder);
+    if(!exists){
+        await boatOrderQueries.insert(newBoatOrder);
+    } else {
+        await boatOrderQueries.update(orderId, newBoatOrder);
+    }
 
     res.json({
-        msg: `Boat configuration mail sent. Your order ID is: ${getOrderId(req.body)}`,
+        msg: `Boat configuration mail sent. Your order ID is: ${orderId}`,
     });
 
 });
