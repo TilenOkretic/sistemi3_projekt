@@ -17,7 +17,7 @@ router.post('/', async (req, res, next) => {
     
     let exists = await boatOrderQueries.find(orderId);
     
-    let newBoat = await createNewBoatObject(req.body);
+    let newBoat = await createNewBoatObject(req.body, next);
 
     let result = await boatQueries.insert(newBoat);
     let { id: boatId } = result[0];
@@ -32,17 +32,20 @@ router.post('/', async (req, res, next) => {
         'email': req.body.sendermail,
     };
 
-    if(!exists){
-        await boatOrderQueries.insert(newBoatOrder);
-    } else {
-        console.log('Updating order with id', orderId);
-        await boatOrderQueries.update(orderId, newBoatOrder);
+    try {
+        if(!exists){
+            await boatOrderQueries.insert(newBoatOrder);
+        } else {
+            console.log('Updating order with id', orderId);
+            await boatOrderQueries.update(orderId, newBoatOrder);
+        }
+
+        res.json({
+            msg: `Boat configuration mail sent. Your order ID is: ${orderId}`,
+        });
+    } catch (error) {
+        next(error);
     }
-
-    res.json({
-        msg: `Boat configuration mail sent. Your order ID is: ${orderId}`,
-    });
-
 });
 
 module.exports = router;

@@ -11,7 +11,7 @@ exports.seed = async (knex) => {
     let roofNames = [
         'none',
         'hht',
-        't-top',
+        'ttop',
         'bimini-small',
         'bimini-standard',
         'bimini-spyhood',
