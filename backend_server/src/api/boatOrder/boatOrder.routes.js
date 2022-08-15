@@ -14,9 +14,13 @@ router.post('/', async (req, res, next) => {
     // console.log(req.body);
 
     let orderId = getOrderId(req.body);
-    
+
+    orderId = orderId.replace(' ', '');    
+
     let exists = await boatOrderQueries.find(orderId);
-    
+	
+    console.log('oreder with id', orderId, 'exists', exists); 
+   
     let newBoat = await createNewBoatObject(req.body);
 
     let result = await boatQueries.insert(newBoat);
