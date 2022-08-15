@@ -35,6 +35,7 @@ router.post('/', async (req, res, next) => {
     if(!exists){
         await boatOrderQueries.insert(newBoatOrder);
     } else {
+        console.log('Updating order with id', orderId);
         await boatOrderQueries.update(orderId, newBoatOrder);
     }
 
