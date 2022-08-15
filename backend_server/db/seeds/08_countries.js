@@ -1,5 +1,5 @@
 const tableNames = require('../../src/constants/tableNames');
-const https = require('https');
+const axios = require('axios');
 /**
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> } 
@@ -10,9 +10,20 @@ exports.seed = async (knex) => {
     
     let url = 'https://restcountries.com/v3.1/all';
     
-    // TODO: look into a better way of generating a GET request
-    let req = await fetch(url);
-    let data = await req.json();
+    // TODO: this is the node v18 way of doing it
+    // let req = await fetch(url);
+    // let data = await req.json();
+    // axios
+    //     .get('https://restcountries.com/v3.1/all')
+    //     .then((res) => {
+    //         console.log(res);
+    //     });
+
+    let req = await axios.get(url, {
+        responseType: 'json',
+    });
+    
+    let data = await req.data;
 
     data.forEach(async (country) => {
         let countryCode = `${country.cca2}-${country.cca3}-${country.cioc}-${country.ccn3}`;
