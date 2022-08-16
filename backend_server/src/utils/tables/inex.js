@@ -6,7 +6,7 @@ function createTable (knex, name, fun) {
         table.increments().notNullable();
         fun(table);
         // table timestampsz
-        addDefaultColumns(table);
+        // addDefaultColumns(table);
     });
 }
 
