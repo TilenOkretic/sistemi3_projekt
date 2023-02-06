@@ -17,8 +17,8 @@ exports.seed = async (knex) => {
         return await motorizations.reduce(async (promise, motorization) => {
             await promise;
             return knex(tableNames.hullAndMotorization).insert({
-                'hull_type_id': hull.id,
-                'motorization_id': motorization.id
+                'hullTypeId': hull.id,
+                'motorizationId': motorization.id
             });
         }, Promise.resolve());
     }, Promise.resolve());

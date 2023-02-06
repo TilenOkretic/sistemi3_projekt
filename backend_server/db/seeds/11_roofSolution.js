@@ -16,8 +16,8 @@ exports.seed = async (knex) => {
         return await roofTypes.reduce(async (promise, roofType) => {
             await promise;
             return knex(tableNames.roofSolution).insert({
-                'color_id': color.id,
-                'roof_type_id': roofType.id
+                'colorId': color.id,
+                'roofTypeId': roofType.id
             });
         }, Promise.resolve());
     }, Promise.resolve());

@@ -3,7 +3,7 @@ const tableNames = require('../../constants/tableNames');
 
 let fields = [ 
     'id',
-    'country_code',
+    'countryCode',
     'name',
 ];
 
@@ -15,8 +15,10 @@ module.exports = {
         const [ distributor ] = await db(tableNames.distributor)
             .select(fields)
             .where({
-                country_code: countryCode         
+                countryCode         
             });
+
+        console.log(distributor);
         return distributor;
     },
     async insert(distributor) {

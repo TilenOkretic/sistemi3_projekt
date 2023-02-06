@@ -38,29 +38,24 @@ exports.up = async (knex) => {
 
     await createTableWithName(knex, tableNames.cockpitLayout);
 
-    await createTable(knex, tableNames.extraEquipmentItem, (table) => {
-        table.string('name', 50);
-    });
-
     await createTable(knex, tableNames.extraEquipment, (table) => {
-        nullableReferenceWithName(table, 'rear_bench_configuration', tableNames.extraEquipmentItem);
+        table.string('rearBenchConfiguration', 50);
+        
+        table.string('tableConfiguration', 50);
+        
+        table.string('bowSunbathingCushions', 50);
+        
+        table.string('sideRailsConfiguration', 50);
+        
+        table.string('foredeckStainlessSteelRails', 50);
+        table.string('sunbedTent', 50);
+        table.string('storageConsolesBehindHelmSeats', 50);
 
-        
-        nullableReferenceWithName(table, 'table_configuration', tableNames.extraEquipmentItem);
-        
-        nullableReferenceWithName(table, 'bow_sunbathing_cushions', tableNames.extraEquipmentItem);
-        
-        nullableReferenceWithName(table, 'side_rails_configuration', tableNames.extraEquipmentItem);
-        
-        nullableReferenceWithName(table, 'foredeck_stainless_steel_rails', tableNames.extraEquipmentItem);
-        nullableReferenceWithName(table, 'sunbed_tent', tableNames.extraEquipmentItem);
-        nullableReferenceWithName(table, 'storage_consoles_behind_helm_seats', tableNames.extraEquipmentItem);
+        table.string('steeringWheelConfiguration', 50);
 
-        nullableReferenceWithName(table, 'steering_wheel_configuration', tableNames.extraEquipmentItem);
-
-        nullableReferenceWithName(table, 'windshield', tableNames.extraEquipmentItem);
-        nullableReferenceWithName(table, 'marine_carpet', tableNames.extraEquipmentItem);
-        nullableReferenceWithName(table, 'additional_storage', tableNames.extraEquipmentItem);
+        table.string('windshield', 50);
+        table.string('marineCarpet', 50);
+        table.string('additionalStorage', 50);
     });
 
     await createTable(knex, tableNames.boat, (table) => {
@@ -68,10 +63,10 @@ exports.up = async (knex) => {
         references(table, tableNames.roofSolution);
         references(table, tableNames.cockpitLayout);
         references(table, tableNames.platform);
-        referenceWithName(table, 'hull_color_id', tableNames.color);
-        referenceWithName(table, 'deck_color_id', tableNames.color);
-        referenceWithName(table, 'upholstery_inner_id', tableNames.tapestry);
-        referenceWithName(table, 'upholstery_outer_id', tableNames.tapestry);
+        referenceWithName(table, 'hullColorId', tableNames.color);
+        referenceWithName(table, 'deckColorId', tableNames.color);
+        referenceWithName(table, 'upholsteryInnerId', tableNames.tapestry);
+        referenceWithName(table, 'upholsteryOuterId', tableNames.tapestry);
         references(table, tableNames.extraEquipment);
     });
 };

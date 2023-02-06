@@ -1,5 +1,5 @@
 const tableNames = require('../../src/constants/tableNames');
-const { createTable, referenceWithName, references } = require('../../src/utils/tables/inex');
+const { createTable, references } = require('../../src/utils/tables/inex');
 
 /**
  * This function creates all db tables and sets up their relationships
@@ -8,7 +8,7 @@ const { createTable, referenceWithName, references } = require('../../src/utils/
  */
 exports.up = async (knex) => {
     await createTable(knex, tableNames.country, (table) => {
-        table.string('country_code').unique().notNullable().primary();
+        table.string('countryCode').unique().notNullable().primary();
         // Unique becouse there should not be two countries with the same name
         // 56 is the max name length -> The United Kingdom of Great Britain and Northern Ireland is the longest country name
         table.string('name', 56).notNullable().unique();
@@ -18,9 +18,9 @@ exports.up = async (knex) => {
         
         // TODO: put this in a refrenceCountryCode function
         table
-            .string('country_code')
+            .string('countryCode')
             .notNullable()
-            .references('country_code')
+            .references('countryCode')
             .inTable(tableNames.country)
             .onDelete('cascade');
 
@@ -28,9 +28,14 @@ exports.up = async (knex) => {
     });
 
     await createTable(knex, tableNames.boatOrder, (table) => {
-        table.string('order_id', 32).notNullable().primary();
+        table.string('orderId', 32).notNullable().primary();
         references(table, tableNames.boat);
-        references(table, tableNames.distributor);
+        table
+            .string('countryCode')
+            .notNullable()
+            .references('countryCode')
+            .inTable(tableNames.country)
+            .onDelete('cascade');        
         table.string('email', 254).notNullable();
     });
 };

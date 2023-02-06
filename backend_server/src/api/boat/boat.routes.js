@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const express = require('express');
 // const RoofSolution = require('./roofSolution.model');
 
@@ -23,30 +24,27 @@ router.post('/', async (req, res, next) => {
     let boat = await boatQueries.findAll();
     let newBoat = {};
 
-    newBoat.roof_solution_id = await getRoofSolutionId(req.body.roofColor, req.body.roofType);
+    newBoat.roofSolutionId = await getRoofSolutionId(req.body.roofColor, req.body.roofType);
   
-    newBoat.hull_and_motorization_id = await getHullAndMotorizationId(req.body.hullType, req.body.motorization);
+    newBoat.hullAndMotorizationId = await getHullAndMotorizationId(req.body.hullType, req.body.motorization);
 
-    newBoat.extra_equipment_id = await getExtraEquipmentId(req.body.extraEquipment);
+    newBoat.extraEquipmentId = await getExtraEquipmentId(req.body.extraEquipment);
 
-    newBoat.cockpit_layout_id = await getCockpitLayoutId(req.body.cockpitLayout);
+    newBoat.cockpitLayoutId = await getCockpitLayoutId(req.body.cockpitLayout);
 
-    newBoat.upholstery_inner_id = await getTapestryId(req.body.innerCushioning);
+    newBoat.upholsteryInnerId = await getTapestryId(req.body.innerCushioning);
 
-    newBoat.upholstery_outer_id = await getTapestryId(req.body.outerCushioning);
+    newBoat.upholsteryOuterId = await getTapestryId(req.body.outerCushioning);
 
-    newBoat.deck_color_id = await getColorId(req.body.deckColor);
+    newBoat.deckColorId = await getColorId(req.body.deckColor);
 
-    newBoat.hull_color_id = await getColorId(req.body.hullColor);
+    newBoat.hullColorId = await getColorId(req.body.hullColor);
 
-    newBoat.platform_id = await getPlatformId(req.body.platform);
+    newBoat.platformId = await getPlatformId(req.body.platform);
 
     let result = await boatQueries.insert(newBoat);
-    console.log(result);
     
-    res.json({
-        msg: `Boat configuration mail sent. Your order ID is: ${getOrderId(req.body)}`,
-    });
+    res.json(result);
 });
 
 module.exports = router;

@@ -2,36 +2,36 @@
 
 module.exports = { 	
     color: 'color',
-    deckColor: 'deck_color', 	  	 
-    hullColor: 'hull_color', 	  	 
+    deckColor: 'deckColor', 	  	 
+    hullColor: 'hullColor', 	  	 
     
-    hullAndMotorization: 'hull_and_motorization', 	  	 
-    hullType: 'hull_type', 	  	 
+    hullAndMotorization: 'hullAndMotorization', 	  	 
+    hullType: 'hullType', 	  	 
     motorization: 'motorization', 	  	 
 
-    roofColor: 'roof_color', 	  	 
-    roofType: 'roof_type', 	  	 
-    roofSolution: 'roof_solution', 	  	 
+    roofColor: 'roofColor', 	  	 
+    roofType: 'roofType', 	  	 
+    roofSolution: 'roofSolution', 	  	 
     
     platform: 'platform', 	  	 
-    platformType: 'platform_type', 	  	 
+    platformType: 'platformType', 	  	 
     
-    upholstryType: 'upholstry_type',
+    upholstryType: 'upholstryType',
     tapestry: 'tapestry',	  	 
     upholstry: 'upholstry', 	
     
-    cockpitLayout: 'cockpit_layout', 	  	
+    cockpitLayout: 'cockpitLayout', 	  	
     
     
-    extraEquipmentItem: 'extra_equipment_item', 	  	 
-    extraEquipment: 'extra_equipment', 	  	 
+    extraEquipmentItem: 'extraEquipmentItem', 	  	 
+    extraEquipment: 'extraEquipment', 	  	 
     
     boat: 'boat', 	  	 
 
     country: 'country', 	  	 
     
     distributor: 'distributor',
-    boatOrder: 'boat_order', 	  	 
+    boatOrder: 'boatOrder', 	  	 
     
     
 };

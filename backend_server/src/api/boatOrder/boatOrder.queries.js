@@ -3,9 +3,9 @@ const tableNames = require('../../constants/tableNames');
 
 let fields = [ 
     'id',	
-    'order_id',	
-    'boat_id',
-    'distributor_id',		
+    'orderId',	
+    'boatId',
+    'countryCode',		
     'email',
 ];
 
@@ -17,7 +17,7 @@ module.exports = {
         const [ boatOrder ] = await db(tableNames.boatOrder)
             .select(fields)
             .where({
-                'order_id': id             
+                'orderId': id             
             });
         return boatOrder;
     },
@@ -25,14 +25,14 @@ module.exports = {
         const res = await db(tableNames.boatOrder)
             .insert(boatOrder)
             .returning(fields)
-            .into('boat_order');
+            .into('boatOrder');
         return res;
     },
     async update(id, boatOrder) {
         const res = await db(tableNames.boatOrder)
             .update(boatOrder)
             .where({
-                'order_id': id
+                'orderId': id
             });
         return res;
     },

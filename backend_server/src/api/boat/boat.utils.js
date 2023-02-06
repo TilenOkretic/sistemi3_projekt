@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const getRoofSolutionId = require('../roofSolution/getters');
 const getHullAndMotorizationId = require('../hullAndMotorization/getters');
 const getExtraEquipmentId = require('../extraEquipment/getters');
@@ -24,27 +25,27 @@ let createNewBoatObject = async (data, next) => {
     } = data;
     
     try {
-        newBoat.roof_solution_id = await getRoofSolutionId(roofColor, roofType);
+        newBoat.roofSolutionId = await getRoofSolutionId(roofColor, roofType);
       
-        newBoat.hull_and_motorization_id = await getHullAndMotorizationId(hullType, motorization);
+        newBoat.hullAndMotorizationId = await getHullAndMotorizationId(hullType, motorization);
     
-        newBoat.extra_equipment_id = await getExtraEquipmentId(extraEquipment);
+        newBoat.extraEquipmentId = await getExtraEquipmentId(extraEquipment);
     
-        newBoat.cockpit_layout_id = await getCockpitLayoutId(cockpitLayout);
+        newBoat.cockpitLayoutId = await getCockpitLayoutId(cockpitLayout);
     
-        newBoat.upholstery_inner_id = await getTapestryId(innerCushioning);
+        newBoat.upholsteryInnerId = await getTapestryId(innerCushioning);
     
-        newBoat.upholstery_outer_id = await getTapestryId(outerCushioning);
+        newBoat.upholsteryOuterId = await getTapestryId(outerCushioning);
     
-        newBoat.deck_color_id = await getColorId(deckColor);
+        newBoat.deckColorId = await getColorId(deckColor);
     
-        newBoat.hull_color_id = await getColorId(hullColor);
+        newBoat.hullColorId = await getColorId(hullColor);
     
-        newBoat.platform_id = await getPlatformId(platform);
+        newBoat.platformId = await getPlatformId(platform);
         
         return newBoat;
     } catch (err) {
-        next(err);
+        console.error(err);
     }
 
 };

@@ -1,7 +1,7 @@
 const db = require('../../db');
 const tableNames = require('../../constants/tableNames');
 
-let fields = [ 'id', 'roof_type_id', 'color_id' ];
+let fields = [ 'id', 'roofTypeId', 'colorId' ];
 
 module.exports = {
     findAll() {
@@ -11,8 +11,8 @@ module.exports = {
         const [ roofSolution ] = await db(tableNames.roofSolution)
             .select(fields)
             .where({
-                'color_id': cid,
-                'roof_type_id': rid,
+                'colorId': cid,
+                'roofTypeId': rid,
             });
         return roofSolution;
     },

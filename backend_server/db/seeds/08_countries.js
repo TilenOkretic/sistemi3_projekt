@@ -29,7 +29,7 @@ exports.seed = async (knex) => {
         let countryCode = `${country.cca2}-${country.cca3}-${country.cioc}-${country.ccn3}`;
         let name = country.name.common;
         let newCountry = {
-            'country_code': countryCode,
+            'countryCode': countryCode,
             name,
         };
         await knex(tableNames.country).insert(newCountry);

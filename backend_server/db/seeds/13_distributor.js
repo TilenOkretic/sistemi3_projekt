@@ -18,9 +18,24 @@ exports.seed = async (knex) => {
 
     await countries.reduce(async (promise, country) => {
         await promise;
-        return knex(tableNames.distributor).insert({
-            name: `Alfastreet Marine ${country.country_code.split('-')[1]}`,
-            'country_code': country.country_code
+        const conn = knex(tableNames.distributor); 
+        conn.insert({
+            name: `Alfastreet Marine ${country.countryCode.split('-')[1]}-primary`,
+            'countryCode': country.countryCode
         });
+        return conn;
     }, Promise.resolve());
+    
+    countries = await knex(tableNames.country);
+
+    await countries.reduce(async (promise, country) => {
+        await promise;
+        const conn = knex(tableNames.distributor); 
+        conn.insert({
+            name: `Alfastreet Marine ${country.countryCode.split('-')[1]}-secondary`,
+            'countryCode': country.countryCode
+        });
+        return conn;
+    }, Promise.resolve());
+
 };

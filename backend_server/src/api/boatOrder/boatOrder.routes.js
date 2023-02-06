@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 const express = require('express');
 
 const router = express.Router();
@@ -25,12 +26,11 @@ router.post('/', async (req, res, next) => {
     let { id: boatId } = result[0];
     console.log('\nInserted boat id:', boatId);
 
-    let { id: distributor_id } = await distributorQueries.find(req.body.country);
 
     let newBoatOrder = {
-        'order_id': orderId,
-        'boat_id': boatId,
-        'distributor_id': distributor_id,		
+        'orderId': orderId,
+        'boatId': boatId,
+        'countryCode': req.body.countryCode,		
         'email': req.body.sendermail,
     };
 

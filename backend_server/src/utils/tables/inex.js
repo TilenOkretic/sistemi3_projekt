@@ -24,7 +24,7 @@ let addDefaultColumns = (table) => {
 let references = (table, tableName) => {
     // 'unsigned int' because an int id can only be a positive number 
     table
-        .integer(`${tableName}_id`)
+        .integer(`${tableName}Id`)
         .unsigned()
         .notNullable()
         .references('id')
